@@ -1,6 +1,6 @@
 {% set name = "cassandra-driver" %}
-{% set version = "3.8.1" %}
-{% set sha256 = "2c35138c52fb85f3889a2841af1d39a0fe91e2f58a6205b1676944d2f4cbefec" %}
+{% set version = "3.9.0" %}
+{% set sha256 = "82ebd0815a97c666e91dfd941fe2e025e64fe196f711b56fb46eace75b8395df" %}
 
 package:
   name: {{ name|lower }}
@@ -38,7 +38,7 @@ test:
     - cassandra
     - cassandra.cqlengine
     - cassandra.io
-    - cassandra.numpy_parser
+    - cassandra.numpy_parser # [not win]
 
 about:
   home: http://github.com/datastax/python-driver
