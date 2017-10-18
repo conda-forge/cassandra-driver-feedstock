@@ -1,6 +1,6 @@
 {% set name = "cassandra-driver" %}
-{% set version = "3.9.0" %}
-{% set sha256 = "82ebd0815a97c666e91dfd941fe2e025e64fe196f711b56fb46eace75b8395df" %}
+{% set version = "3.11.0" %}
+{% set sha256 = "643bed0fac08ee91630f0f35556bb62c3b4b007c20d4e6e8d349f769ea648150" %}
 
 package:
   name: {{ name|lower }}
