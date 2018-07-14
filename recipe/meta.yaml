@@ -13,8 +13,8 @@ source:
 
 build:
   number: 1
-  script: python setup.py build build_ext -I${PREFIX}/include -L${PREFIX}/lib install --single-version-externally-managed --record record.txt # [not win]
-  script: python setup.py install --no-cython --single-version-externally-managed --record record.txt # [win]
+  script: python setup.py build build_ext -I${PREFIX}/include -L${PREFIX}/lib install --single-version-externally-managed --record record.txt  # [not win]
+  script: python setup.py install --no-cython --single-version-externally-managed --record record.txt  # [win]
 
 requirements:
   build:
@@ -22,7 +22,7 @@ requirements:
   host:
     - python
     - setuptools
-    - cython <0.25
+    - cython
     - libev  # [not win]
     - msinttypes  # [win and py2k]
 
@@ -38,7 +38,7 @@ test:
     - cassandra
     - cassandra.cqlengine
     - cassandra.io
-    - cassandra.numpy_parser # [not win]
+    - cassandra.numpy_parser  # [not win]
 
 about:
   home: http://github.com/datastax/python-driver
