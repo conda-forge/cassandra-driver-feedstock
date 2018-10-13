@@ -20,7 +20,9 @@ requirements:
   build:
     - python
     - setuptools
-    - toolchain
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - {{ compiler('fortran') }}
     - cython <0.25
     - libev  # [not win]
     - msinttypes  # [win and py2k]
