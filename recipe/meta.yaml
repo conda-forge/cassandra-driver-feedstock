@@ -13,22 +13,25 @@ source:
 
 build:
   number: 2
-  script: python setup.py build build_ext -I${PREFIX}/include -L${PREFIX}/lib install --single-version-externally-managed --record record.txt  # [not win]
-  script: python setup.py install --no-cython --single-version-externally-managed --record record.txt  # [win]
+  script: {{ PYTHON }} setup.py build build_ext -I${PREFIX}/include -L${PREFIX}/lib install --single-version-externally-managed --record record.txt  # [not win]
+  script: {{ PYTHON }} setup.py install --no-cython --single-version-externally-managed --record record.txt  # [win]
 
 requirements:
   build:
-    - setuptools
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
-    - cython <0.25
-    - libev  # [not win]
-    - msinttypes  # [win and py2k]
+    - setuptools
 
   host:
-    - python
+    - python <3.7
     - numpy
+    - cython <0.25
+    - sqlite =3.13
+    - tk =8.5
+    - readline =6.2
+    - libev  # [not win]
+    - msinttypes  # [win and py2k]
 
   run:
     - python
