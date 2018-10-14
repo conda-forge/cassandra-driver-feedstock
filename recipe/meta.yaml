@@ -21,10 +21,10 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
-    - setuptools
 
   host:
     - python <3.7
+    - setuptools
     - numpy
     - cython <0.25
     - sqlite =3.13
