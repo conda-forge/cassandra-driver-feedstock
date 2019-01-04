@@ -18,9 +18,10 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}
+  host:
     - python
     - setuptools
-    - toolchain
     - cython <0.25
     - libev  # [not win]
     - msinttypes  # [win and py2k]
