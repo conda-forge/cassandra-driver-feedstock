@@ -29,7 +29,7 @@ requirements:
     - python
     - numpy
     - six >=1.9
-    - futures<=2.2.0  # [py2k]
+    - futures <=2.2.0  # [py2k]
     - libev  # [not win]
 
 test:
