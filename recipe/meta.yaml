@@ -12,14 +12,13 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script: python setup.py build build_ext -I${PREFIX}/include -L${PREFIX}/lib install --single-version-externally-managed --record record.txt  # [not win]
   script: python setup.py install --no-cython --single-version-externally-managed --record record.txt  # [win]
+  skip: True
 
 requirements:
   build:
-    - {{  compiler('c') }}
-  host:
     - python
     - setuptools
     - cython
@@ -47,7 +46,7 @@ about:
   license_file: LICENSE
   summary: 'Python driver for Cassandra'
   description: |
-    A modern, feature-rich and highly-tunable Python client library for Apache Cassandra (2.1+)
+    A modern, feature-rich and highly-tunable Python client library for Apache Cassandra (2.1+) 
     using exclusively Cassandra’s binary protocol and Cassandra Query Language v3.
   doc_url: http://datastax.github.io/python-driver/api/index.html
   dev_url: http://github.com/datastax/python-driver
@@ -56,4 +55,3 @@ extra:
   recipe-maintainers:
     - petercable
     - anirrudh
-    - scopatz
