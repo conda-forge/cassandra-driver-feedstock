@@ -203,4 +203,5 @@ Feedstock Maintainers
 
 * [@anirrudh](https://github.com/anirrudh/)
 * [@petercable](https://github.com/petercable/)
+* [@scopatz](https://github.com/scopatz/)
 
