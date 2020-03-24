@@ -39,7 +39,7 @@ test:
     - cassandra
     - cassandra.cqlengine
     - cassandra.io
-    - cassandra.numpy_parser  # [not win]
+    - cassandra.numpy_parser  # [not win and python_impl == 'cpython']
 
 about:
   home: http://github.com/datastax/python-driver
