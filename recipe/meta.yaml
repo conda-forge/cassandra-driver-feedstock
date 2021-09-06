@@ -12,10 +12,9 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
   script: python setup.py build build_ext -I${PREFIX}/include -L${PREFIX}/lib install --single-version-externally-managed --record record.txt  # [not win]
   script: python setup.py install --no-cython --single-version-externally-managed --record record.txt  # [win]
-  skip: true  # [py2k]
 
 requirements:
   build:
@@ -25,25 +24,27 @@ requirements:
     - setuptools
     - cython
     - libev  # [not win]
-    - msinttypes  # [win and py2k]
 
   run:
     - python
     - numpy
     - six >=1.9
-    - futures <=2.2.0  # [py2k]
-    - libev  # [not win]
+    - geomet >=0.1,<0.3
 
 test:
+  requires:
+    - pip
   imports:
     - cassandra
     - cassandra.cqlengine
     - cassandra.io
     - cassandra.numpy_parser  # [not win and python_impl == 'cpython']
+  commands:
+    - pip check
 
 about:
   home: http://github.com/datastax/python-driver
-  license: Apache
+  license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
   summary: Python driver for Cassandra
@@ -58,3 +59,4 @@ extra:
     - petercable
     - anirrudh
     - scopatz
+    - xylar
