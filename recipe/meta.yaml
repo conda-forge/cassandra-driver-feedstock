@@ -1,6 +1,6 @@
 {% set name = "cassandra-driver" %}
-{% set version = "3.25.0" %}
-{% set sha256 = "8ad7d7c090eb1cac6110b3bfc1fd2d334ac62f415aac09350ebb8d241b7aa7ee" %}
+{% set version = "3.26.0" %}
+{% set sha256 = "425338478c14324704f6973451f3c54f7ffa65b49be045ad1de19628ab6e9492" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 5
+  number: 0
   script: python setup.py build build_ext -I${PREFIX}/include -L${PREFIX}/lib install --single-version-externally-managed --record record.txt  # [not win]
   script: python setup.py install --no-cython --single-version-externally-managed --record record.txt  # [win]
 
