@@ -22,6 +22,7 @@ requirements:
     - {{ compiler('c') }}
   host:
     - python
+    - pip
     - setuptools
     - cython
     - libev  # [not win]
