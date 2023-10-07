@@ -10,7 +10,7 @@ source:
   sha256: 64ff130d19f994b80997c14343a8306be52a0e7ab92520a534eed944c88d70df
 
 build:
-  number: 0
+  number: 1
   script: python setup.py build build_ext -I${PREFIX}/include -L${PREFIX}/lib install --single-version-externally-managed --record record.txt  # [not win]
   script: python setup.py install --no-cython --single-version-externally-managed --record record.txt  # [win]
 
@@ -18,12 +18,13 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython                                 # [build_platform != target_platform]
+    - cython <3                              # [build_platform != target_platform]
     - {{ compiler('c') }}
   host:
     - python
+    - pip
     - setuptools
-    - cython
+    - cython <3
     - libev  # [not win]
 
   run:
