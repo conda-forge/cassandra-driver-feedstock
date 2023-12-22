@@ -31,7 +31,6 @@ requirements:
     - python
     - geomet >=0.1,<0.3
     - numpy
-    - six >=1.9
     - libev  # [not win]
 
 test:
