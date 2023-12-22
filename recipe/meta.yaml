@@ -1,5 +1,5 @@
 {% set name = "cassandra-driver" %}
-{% set version = "3.28.0" %}
+{% set version = "3.29.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/cassandra-driver-{{ version }}.tar.gz
-  sha256: 64ff130d19f994b80997c14343a8306be52a0e7ab92520a534eed944c88d70df
+  sha256: 0a34f9534356e5fd33af8cdda109d5e945b6335cb50399b267c46368c4e93c98
 
 build:
-  number: 1
+  number: 0
   script: python setup.py build build_ext -I${PREFIX}/include -L${PREFIX}/lib install --single-version-externally-managed --record record.txt  # [not win]
   script: python setup.py install --no-cython --single-version-externally-managed --record record.txt  # [win]
 
