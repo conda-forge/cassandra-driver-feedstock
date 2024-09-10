@@ -1,5 +1,5 @@
 {% set name = "cassandra-driver" %}
-{% set version = "3.29.1" %}
+{% set version = "3.29.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/cassandra-driver-{{ version }}.tar.gz
-  sha256: 38e9c2a2f2a9664bb03f1f852d5fccaeff2163942b5db35dffcf8bf32a51cfe5
+  sha256: c4310a7d0457f51a63fb019d8ef501588c491141362b53097fbc62fa06559b7c
 
 build:
   number: 0
@@ -20,6 +20,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython >=0.20,!=0.25,<0.30             # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
