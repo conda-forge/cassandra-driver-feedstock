@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/cassandra-driver-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/cassandra-driver-{{ version }}.tar.gz
   sha256: c4310a7d0457f51a63fb019d8ef501588c491141362b53097fbc62fa06559b7c
 
 build:
-  number: 0
+  number: 1
   script: python setup.py build build_ext -I${PREFIX}/include -L${PREFIX}/lib install --single-version-externally-managed --record record.txt  # [not win]
   script: python setup.py install --no-cython --single-version-externally-managed --record record.txt  # [win]
 
