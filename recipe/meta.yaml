@@ -10,7 +10,7 @@ source:
   sha256: c4310a7d0457f51a63fb019d8ef501588c491141362b53097fbc62fa06559b7c
 
 build:
-  number: 1
+  number: 2
   script: python setup.py build build_ext -I${PREFIX}/include -L${PREFIX}/lib install --single-version-externally-managed --record record.txt  # [not win]
   script: python setup.py install --no-cython --single-version-externally-managed --record record.txt  # [win]
 
