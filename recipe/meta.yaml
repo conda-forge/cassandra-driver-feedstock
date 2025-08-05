@@ -8,9 +8,11 @@ package:
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/cassandra-driver-{{ version }}.tar.gz
   sha256: c4310a7d0457f51a63fb019d8ef501588c491141362b53097fbc62fa06559b7c
+  patches:
+    - 0001-updated-cython-version.patch
 
 build:
-  number: 1
+  number: 2
   script: python setup.py build build_ext -I${PREFIX}/include -L${PREFIX}/lib install --single-version-externally-managed --record record.txt  # [not win]
   script: python setup.py install --no-cython --single-version-externally-managed --record record.txt  # [win]
 
@@ -18,14 +20,14 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython >=0.20,!=0.25,<0.30             # [build_platform != target_platform]
+    - cython >=0.30                          # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
   host:
     - python
     - pip
     - setuptools
-    - cython >=0.20,!=0.25,<0.30
+    - cython >=0.30
     - libev  # [not win]
 
   run:
