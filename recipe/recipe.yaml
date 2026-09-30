@@ -16,7 +16,7 @@ source:
       then: disable-libev-windows.patch
 
 build:
-  number: 2
+  number: 3
   script: ${{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
@@ -44,6 +44,10 @@ requirements:
     - numpy
     - if: not win
       then: libev
+    # libev is disabled on win, so asyncore is the only default reactor left
+    # there, and it was removed from the stdlib in 3.12.
+    - if: win and match(python, ">=3.12")
+      then: pyasyncore
 
 tests:
   - python:
@@ -51,6 +55,7 @@ tests:
         - cassandra
         - cassandra.cqlengine
         - cassandra.io
+        - cassandra.cluster
         - if: not win and python_impl == 'cpython'
           then: cassandra.numpy_parser
       pip_check: true
